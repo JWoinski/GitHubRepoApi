@@ -21,7 +21,8 @@ public class UserController {
     public ResponseEntity<List<Map<String, Object>>> getRepositories(
             @PathVariable String login,
             @RequestHeader(value = HttpHeaders.ACCEPT, defaultValue = "application/json") String acceptHeader) {
-
+        System.out.println("Accept Header: " + acceptHeader);
+        System.out.println("Is application/json: " + acceptHeader.equalsIgnoreCase("application/json"));
         if (!"application/json".equalsIgnoreCase(acceptHeader)) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }

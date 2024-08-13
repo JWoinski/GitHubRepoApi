@@ -62,7 +62,8 @@ GET /repositories/{login}
 ### Response:
 
 200 OK: Returns a list of repositories with branches and their last commit SHA. <br>
-404 NOT FOUND: If the GitHub user does not exist.
+404 NOT FOUND: If the GitHub user does not exist.<br>
+406 NOT ACCEPTABLE: If the header is incorrect.
 
 ## Code Implementation
 ### GitHubService Class

@@ -39,7 +39,6 @@ public class GitHubServiceIntegrationTest {
     void testGetRepositories() {
         String login = "someUser";
 
-        // Mockowanie odpowiedzi dla zapytań o repozytoria
         String repositoriesJson = """
                 [
                     {
@@ -64,7 +63,6 @@ public class GitHubServiceIntegrationTest {
                 .andExpect(method(HttpMethod.GET))
                 .andRespond(withSuccess(repositoriesJson, MediaType.APPLICATION_JSON));
 
-        // Mockowanie odpowiedzi dla zapytań o branche
         String branchesRepo1Json = """
                 [
                     {
@@ -91,13 +89,11 @@ public class GitHubServiceIntegrationTest {
                 .andExpect(method(HttpMethod.GET))
                 .andRespond(withSuccess(branchesRepo3Json, MediaType.APPLICATION_JSON));
 
-        // Wywołanie metody getRepositories
         List<Map<String, Object>> result = gitHubService.getRepositories(login);
 
-        // Weryfikacja rezultatów
         assertEquals(2, result.size());
 
-        Map<String, Object> repo1 = result.get(0);
+        Map<String, Object> repo1 = result.getFirst();
         assertEquals("repo1", repo1.get("Repository Name"));
         assertEquals("owner1", repo1.get("Owner Login"));
         assertEquals(1, ((List<?>) repo1.get("Branches")).size());
@@ -107,7 +103,6 @@ public class GitHubServiceIntegrationTest {
         assertEquals("owner3", repo3.get("Owner Login"));
         assertEquals(1, ((List<?>) repo3.get("Branches")).size());
 
-        // Weryfikacja wywołań na MockServerze
         mockServer.verify();
     }
 }
