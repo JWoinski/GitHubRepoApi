@@ -19,7 +19,7 @@ This project is a Spring Boot service that interacts with the GitHub API to retr
 - Spring Test
 - Mockito
 - JUnit 5
-
+ 
 ## Getting Started
 
 ### Prerequisites
