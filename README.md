@@ -78,4 +78,4 @@ The GitHubService class is responsible for interacting with the GitHub API and p
 The project includes unit tests for the GitHubService class. These tests verify the correctness of the logic in the service methods, such as filtering out forked repositories and mapping branches correctly.
 
 ### Integration Tests
-Integration tests ensure that the service correctly integrates with external systems (simulated by MockRestServiceServer). Below is an example of an integration test for the GitHubService class.
+Integration tests ensure that the service correctly integrates with external systems (simulated by MockRestServiceServer).
